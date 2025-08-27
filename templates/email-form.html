@@ -1,0 +1,31 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Analisar E-mail{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">
+        Envie seu e-mail para análise
+    </h2>
+
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('process_email') }}">
+        <div class="mb-3">
+            <label for="filesent" class="form-label">
+                Anexar arquivo (.txt ou .pdf):
+            </label>
+            <input id="filesent" type="file" class="form-control" name="file" accept=".pdf,.txt">
+        </div>
+
+        <div class="mb-3">
+            <label for="txt" class="form-label">
+                Ou cole o texto aqui:
+            </label>
+            <textarea id="txt" class="form-control" name="text" rows="6" placeholder="Digite ou cole o conteúdo do e-mail"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            <i class="fas fa-paper-plane me-2"></i>
+            Enviar para análise
+        </button>
+    </form>
+</div>
+{% endblock %}

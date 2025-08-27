@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Hello Flask</title>
-</head>
-<body>
-    <h1>Olá, Flask + HTML!</h1>
-</body>
-</html>
+{% extends 'layouts/blank.html' %}
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center">
+        <h1 class="mb-3">
+            Painel de Classificação de E-mails
+        </h1>
+
+        <p class="lead">
+            Clique no botão abaixo para começar
+        </p>
+
+        <a href="{{ url_for('email_form') }}" class="btn btn-primary btn-lg">
+            <i class="fas fa-envelope-open-text me-2"></i>
+            Analisar E-mail
+        </a>
+    </div>
+</div>
+{% endblock %}
