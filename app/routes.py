@@ -1,5 +1,6 @@
 from app import app
-from flask import render_template
+from flask import render_template, request
+from app.services.extractor import read_file
 
 @app.route('/')
 def index():
@@ -11,4 +12,16 @@ def email_form():
 
 @app.route('/process', methods=['POST'])
 def process_email():
-    return "Processamento futuro..."
+    text = request.form.get('text', '')
+
+    if not text and 'file' in request.files:
+        file = request.files['file']
+        if file.filename != '':
+            text = read_file(file)
+
+    resultado = {
+        'categoria': 'Produtivo',
+        'resposta': 'Obrigado pelo contato! Estamos analisando sua solicitação.'
+    }
+
+    return render_template('email-form.html', resultado=resultado, texto_original=text)
