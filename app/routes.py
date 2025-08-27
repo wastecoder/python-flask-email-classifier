@@ -1,6 +1,7 @@
 from app import app
 from flask import render_template, request
 from app.services.extractor import read_file
+from app.services.preprocess import preprocess_text
 
 @app.route('/')
 def index():
@@ -19,9 +20,16 @@ def process_email():
         if file.filename != '':
             text = read_file(file)
 
+    texto_limpo = preprocess_text(text)
+
     resultado = {
         'categoria': 'Produtivo',
         'resposta': 'Obrigado pelo contato! Estamos analisando sua solicitação.'
     }
 
-    return render_template('email-form.html', resultado=resultado, texto_original=text)
+    return render_template(
+        'email-form.html',
+        resultado=resultado,
+        texto_original=text,
+        texto_preprocessado=texto_limpo
+    )
