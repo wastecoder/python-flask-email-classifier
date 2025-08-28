@@ -10,7 +10,7 @@ def index():
 
 @app.route('/email-form')
 def email_form():
-    return render_template('email-form.html')
+    return render_template('email/email-page.html')
 
 @app.route('/process', methods=['POST'])
 def process_email():
@@ -26,7 +26,7 @@ def process_email():
     resultado = classificar_email(texto_limpo)
 
     return render_template(
-        'email-form.html',
+        'email/email-page.html',
         resultado=resultado,
         texto_original=text,
     )

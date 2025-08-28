@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Analisar E-mail{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">
+        Análise Automática de E-mails
+    </h2>
+
+    {% include 'email/email-form.html' %}
+
+    {% if resultado %}
+        <hr class="my-4">
+
+        {% include 'email/email-analysis-result.html' %}
+    {% endif %}
+
+    {% if texto_original %}
+        {% include 'email/email-submitted-text-modal.html' %}
+        {% include 'email/email-category-info-modal.html' %}
+    {% endif %}
+</div>
+{% endblock %}
