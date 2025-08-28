@@ -58,7 +58,11 @@
 
             <p class="mb-0">
                 <strong>Resposta sugerida:</strong>
-                {{ resultado.resposta }}
+                <span id="respostaTexto">{{ resultado.resposta }}</span>
+
+                <button type="button" class="btn btn-sm btn-outline-secondary ms-3" id="copiarBtn" title="Copiar resposta">
+                    <i class="fas fa-copy"></i>
+                </button>
             </p>
         </div>
     </div>
