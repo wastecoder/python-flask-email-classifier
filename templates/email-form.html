@@ -22,10 +22,19 @@
             <textarea id="txt" class="form-control" name="text" rows="6" placeholder="Digite ou cole o conteúdo do e-mail"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-success">
-            <i class="fas fa-paper-plane me-2"></i>
-            Analisar E-mail
-        </button>
+        <div class="d-flex gap-2 mt-3">
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-paper-plane me-2"></i>
+                Analisar E-mail
+            </button>
+
+            {% if resultado %}
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#textoModal">
+                <i class="fas fa-eye me-2"></i>
+                Ver Texto Analisado
+            </button>
+            {% endif %}
+        </div>
     </form>
 
     {% if resultado %}
@@ -51,13 +60,26 @@
     {% endif %}
 
     {% if texto_original %}
-    <div class="card my-4">
-        <div class="card-header bg-light fw-bold">
-            Texto Analisado
-        </div>
+    <div class="modal fade" id="textoModal" tabindex="-1" aria-labelledby="textoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="textoModalLabel">
+                        Texto Analisado
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
 
-        <div class="card-body">
-            <pre class="preformatted bg-light p-3 rounded">{{ texto_original }}</pre>
+                <div class="modal-body">
+                    <pre class="preformatted bg-light p-3 rounded">{{ texto_original }}</pre>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Fechar
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
     {% endif %}
