@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container mt-5">
     <h2 class="mb-4">
-        Envie seu e-mail para análise
+        Análise Automática de E-mails
     </h2>
 
     <form method="POST" enctype="multipart/form-data" action="{{ url_for('process_email') }}">
@@ -24,7 +24,7 @@
 
         <button type="submit" class="btn btn-success">
             <i class="fas fa-paper-plane me-2"></i>
-            Enviar para análise
+            Analisar E-mail
         </button>
     </form>
 
@@ -58,18 +58,6 @@
 
         <div class="card-body">
             <pre class="preformatted bg-light p-3 rounded">{{ texto_original }}</pre>
-        </div>
-    </div>
-    {% endif %}
-
-    {% if texto_preprocessado %}
-    <div class="card mb-5">
-        <div class="card-header bg-light fw-bold">
-            Texto Limpo
-        </div>
-
-        <div class="card-body">
-            <pre class="preformatted bg-light p-3 rounded">{{ texto_preprocessado }}</pre>
         </div>
     </div>
     {% endif %}

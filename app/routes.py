@@ -29,5 +29,4 @@ def process_email():
         'email-form.html',
         resultado=resultado,
         texto_original=text,
-        texto_preprocessado=texto_limpo
     )
