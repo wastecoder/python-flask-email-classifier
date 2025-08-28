@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, request
 from app.services.extractor import read_file
 from app.services.preprocess import preprocess_text
+from app.services.classifier import classificar_email
 
 @app.route('/')
 def index():
@@ -22,10 +23,7 @@ def process_email():
 
     texto_limpo = preprocess_text(text)
 
-    resultado = {
-        'categoria': 'Produtivo',
-        'resposta': 'Obrigado pelo contato! Estamos analisando sua solicitação.'
-    }
+    resultado = classificar_email(texto_limpo)
 
     return render_template(
         'email-form.html',
