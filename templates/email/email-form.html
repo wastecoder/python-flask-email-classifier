@@ -1,4 +1,6 @@
-<form method="POST" enctype="multipart/form-data" action="{{ url_for('process_email') }}">
+<form method="POST" enctype="multipart/form-data"
+      action="{{ url_for('process_email') }}"
+      onsubmit="return validateEmailForm(event)">
     <div class="mb-3">
         <label for="filesent" class="form-label fw-bold">
             Anexar arquivo (.txt ou .pdf):
