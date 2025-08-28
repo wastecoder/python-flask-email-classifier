@@ -13,7 +13,11 @@
             <strong>Resposta sugerida:</strong>
             <span id="respostaTexto">{{ resultado.resposta }}</span>
 
-            <button type="button" class="btn btn-sm btn-outline-secondary ms-3" id="copiarBtn" title="Copiar resposta">
+            <button type="button"
+                    class="btn btn-sm btn-outline-secondary ms-3"
+                    id="copiarBtn"
+                    title="Copiar resposta"
+                    onclick="copyText('respostaTexto', 'copiarBtn')">
                 <i class="fas fa-copy"></i>
             </button>
         </p>
