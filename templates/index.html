@@ -2,20 +2,62 @@
 {% block title %}Página Inicial{% endblock %}
 
 {% block content %}
-<div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="text-center">
-        <h1 class="mb-3">
-            Painel de Classificação de E-mails
-        </h1>
+<div class="container py-5 text-center">
 
-        <p class="lead">
-            Clique no botão abaixo para começar
+    <div class="mb-5">
+        <h1 class="display-5 fw-bold mb-3">
+            📧 Painel de Classificação de E-mails
+        </h1>
+        <p class="lead text-muted mb-4">
+            Descubra rapidamente se seu e-mail é <strong>produtivo ou não</strong>, e receba uma <strong>resposta automática</strong> sugerida pela IA.
         </p>
 
-        <a href="{{ url_for('email_form') }}" class="btn btn-primary btn-lg">
+        <a href="{{ url_for('email_form') }}" class="btn btn-primary btn-lg px-4 text-uppercase">
             <i class="fas fa-envelope-open-text me-2"></i>
             Analisar E-mail
         </a>
     </div>
+
+    <hr class="my-5">
+
+    <div class="row text-center">
+        <div class="col-md-4 my-1">
+            <i class="fas fa-inbox fa-3x text-primary mb-3"></i>
+            <h5>Entrada de e-mails</h5>
+            <p class="text-muted">Carregue um arquivo <strong>.txt</strong> ou <strong>.pdf</strong>, ou cole o texto diretamente no formulário.</p>
+        </div>
+
+        <div class="col-md-4 my-1">
+            <i class="fas fa-robot fa-3x text-success mb-3"></i>
+            <h5>Análise com IA</h5>
+            <p class="text-muted">O sistema <strong>processa sua mensagem</strong> e identifica automaticamente a <strong>categoria</strong>.</p>
+        </div>
+
+        <div class="col-md-4 my-1">
+            <i class="fas fa-reply fa-3x text-info mb-3"></i>
+            <h5>Resposta sugerida</h5>
+            <p class="text-muted">Receba uma <strong>resposta pronta</strong> para <strong>copiar e colar</strong>, agilizando seu dia a dia.</p>
+        </div>
+    </div>
+
+    <hr class="mt-4 mb-5">
+
+    <div class="bg-light p-4 rounded shadow-sm col-md-8 mx-auto">
+        <h5 class="fw-bold mb-3">🔍 Exemplo de Análise</h5>
+        <p class="mb-3">
+            Ao processar um e-mail, o sistema retorna o resultado no formato JSON:
+        </p>
+
+<pre class="preformatted bg-dark text-white p-3 rounded text-start">{
+    "categoria": "Produtivo",
+    "resposta": "Olá! Agradecemos o seu contato.\n\nVerificamos que o ticket #98231 está em andamento. Encaminhamos sua mensagem à equipe responsável para priorizar a análise e retornaremos com uma atualização o mais breve possível.\n\nAgradecemos pela sua paciência e compreensão."
+}</pre>
+
+                <p class="mt-3 text-muted small">
+            Neste exemplo, o e-mail <em>“Olá, equipe de suporte. Há alguma atualização sobre o ticket #98231? Ainda não consigo acessar o sistema, mesmo após redefinir a senha.”</em> foi classificado como
+            <strong>Produtivo</strong> e recebeu uma <strong>resposta automática</strong> sugerida.
+        </p>
+    </div>
+
 </div>
 {% endblock %}
