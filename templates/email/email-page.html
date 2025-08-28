@@ -19,5 +19,9 @@
         {% include 'email/email-submitted-text-modal.html' %}
         {% include 'email/email-category-info-modal.html' %}
     {% endif %}
+
+    {% if mensagem_erro %}
+        {% include 'partials/toast-notification.html' %}
+    {% endif %}
 </div>
 {% endblock %}

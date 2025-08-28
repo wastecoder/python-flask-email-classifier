@@ -15,11 +15,13 @@ def email_form():
 @app.route('/process', methods=['POST'])
 def process_email():
     text = request.form.get('text', '')
+    file = request.files.get('file')
 
-    if not text and 'file' in request.files:
-        file = request.files['file']
-        if file.filename != '':
-            text = read_file(file)
+    if not text and (not file or file.filename == ''):
+        return render_template('email/email-page.html', mensagem_erro='Você deve fornecer um texto ou anexar um arquivo.')
+
+    if not text and file and file.filename != '':
+        text = read_file(file)
 
     texto_limpo = preprocess_text(text)
 

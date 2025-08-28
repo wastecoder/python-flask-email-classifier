@@ -12,3 +12,10 @@ body {
     white-space: pre-wrap;
     overflow-wrap: break-word;
 }
+
+.toast-notification {
+    bottom: 3rem;
+    right: 2rem;
+    width: 450px;
+    z-index: 1055;
+}
