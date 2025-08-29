@@ -11,6 +11,7 @@ body {
 .preformatted {
     white-space: pre-wrap;
     overflow-wrap: break-word;
+    text-align: justify;
 }
 
 .toast-notification {
