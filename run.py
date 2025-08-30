@@ -1,3 +1,12 @@
+"""
+Ponto de entrada da aplicação Flask.
+
+Este script inicializa o servidor de aplicação usando Waitress, adequado para ambientes de produção.
+
+Uso:
+    python run.py
+"""
+
 from waitress import serve
 from app import app
 

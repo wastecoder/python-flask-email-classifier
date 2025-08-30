@@ -1,3 +1,12 @@
+"""
+Inicializa a aplicação Flask e configura os diretórios de templates e arquivos estáticos.
+
+Este módulo é responsável por:
+- Criar a instância principal da aplicação (`app`)
+- Definir os diretórios base, de templates e estáticos
+- Importar e registrar as rotas da aplicação
+"""
+
 from flask import Flask
 from pathlib import Path
 
