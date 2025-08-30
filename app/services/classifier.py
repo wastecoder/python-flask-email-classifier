@@ -5,7 +5,7 @@ Este serviço utiliza a API da OpenAI para analisar o conteúdo textual de um e-
 classificando-o como 'Produtivo' ou 'Improdutivo', e gerando uma resposta automática adequada.
 
 Uso típico:
-    resultado = classificar_email("Gostaria de atualizar meus dados cadastrais.")
+    resultado = classify_email("Gostaria de atualizar meus dados cadastrais.")
 """
 
 import os
@@ -18,7 +18,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 MAX_OUTPUT_TOKENS = 200
 
-def classificar_email(texto: str) -> dict:
+def classify_email(texto: str) -> dict:
     """
     Classifica o conteúdo de um e-mail como 'Produtivo' ou 'Improdutivo' e gera uma resposta automática.
 
@@ -31,8 +31,8 @@ def classificar_email(texto: str) -> dict:
 
     Retorna:
         dict: Um dicionário contendo:
-            - "categoria": str - 'Produtivo', 'Improdutivo' ou 'Erro'
-            - "resposta": str - Resposta automática apropriada ou mensagem de erro
+            - "category": str - 'Produtivo', 'Improdutivo' ou 'Erro'
+            - "answer": str - Resposta automática apropriada ou mensagem de erro
     """
 
     messages = [
@@ -46,8 +46,8 @@ def classificar_email(texto: str) -> dict:
                 "Depois, gere uma resposta automática apropriada.\n\n"
                 "Retorne APENAS em JSON no formato:\n"
                 "{\n"
-                "  \"categoria\": \"Produtivo ou Improdutivo\",\n"
-                "  \"resposta\": \"Texto da resposta\"\n"
+                "  \"category\": \"Produtivo ou Improdutivo\",\n"
+                "  \"answer\": \"Texto da resposta\"\n"
                 "}"
             )
         },
@@ -70,13 +70,13 @@ def classificar_email(texto: str) -> dict:
         result = json.loads(content)
 
         return {
-            "categoria": result.get("categoria", "Indefinido"),
-            "resposta": result.get("resposta", "")
+            "category": result.get("category", "Indefinido"),
+            "answer": result.get("answer", "")
         }
 
     except Exception as e:
         print("Erro ao classificar:", e)
         return {
-            "categoria": "Erro",
-            "resposta": "Não foi possível gerar uma resposta no momento."
+            "category": "Erro",
+            "answer": "Não foi possível gerar uma resposta no momento."
         }

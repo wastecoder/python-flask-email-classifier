@@ -9,19 +9,19 @@
 
     {% include 'email/email-form.html' %}
 
-    {% if resultado %}
+    {% if result %}
         <hr class="my-4">
 
         {% include 'email/email-analysis-result.html' %}
     {% endif %}
 
-    {% if texto_original %}
+    {% if submitted_text %}
         {% include 'email/email-submitted-text-modal.html' %}
         {% include 'email/email-category-info-modal.html' %}
     {% endif %}
 
     <div id="js-error-container"></div>
-    {% if mensagem_erro %}
+    {% if error_message %}
         {% include 'partials/toast-notification.html' %}
     {% endif %}
 </div>

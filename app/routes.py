@@ -16,7 +16,7 @@ from app import app
 from flask import render_template, request
 from app.services.extractor import read_file
 from app.services.preprocess import preprocess_text
-from app.services.classifier import classificar_email
+from app.services.classifier import classify_email
 
 @app.route('/')
 def index():
@@ -43,17 +43,17 @@ def process_email():
     file = request.files.get('file')
 
     if not text and (not file or file.filename == ''):
-        return render_template('email/email-page.html', mensagem_erro='Você deve fornecer um texto ou anexar um arquivo.')
+        return render_template('email/email-page.html', error_message='Você deve fornecer um texto ou anexar um arquivo.')
 
     if not text and file and file.filename != '':
         text = read_file(file)
 
-    texto_limpo = preprocess_text(text)
+    clean_text = preprocess_text(text)
 
-    resultado = classificar_email(texto_limpo)
+    result = classify_email(clean_text)
 
     return render_template(
         'email/email-page.html',
-        resultado=resultado,
-        texto_original=text,
+        result=result,
+        submitted_text=text,
     )
