@@ -1,0 +1,14 @@
+Assunto: Problemas com anexos no sistema
+
+Olá, pessoal,
+
+Estou tentando subir um documento no sistema desde ontem, mas sempre recebo uma mensagem de erro dizendo que o arquivo é inválido, mesmo sendo um PDF comum.
+
+Poderiam verificar se há alguma instabilidade?
+
+O arquivo tem apenas 1,2 MB e já tentei em dois navegadores diferentes.
+
+Agradeço desde já pelo suporte.
+
+Att.,
+Marina Lopes
