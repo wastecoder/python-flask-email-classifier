@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-MAX_OUTPUT_TOKENS = 200
+MAX_OUTPUT_TOKENS = 500
 
 def classify_email(texto: str) -> dict:
     """
